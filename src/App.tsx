@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import "./App.css";
+import DetailContainer from "./components/DetailContainer";
+import ListContainer from "./components/ListContainer";
+import ListItem from "./components/ListItem";
+import SelectedItemProvider from "./context/SelectedItem";
+import SelectedItem, { ItemContext } from "./context/SelectedItem";
+import { Container } from "./styles/Container";
 
-function App() {
+const App = (): React.ReactElement => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SelectedItemProvider>
+      <Container>
+        <ListContainer />
+        <DetailContainer />
+      </Container>
+    </SelectedItemProvider>
   );
-}
+};
 
 export default App;
